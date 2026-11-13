@@ -41,15 +41,15 @@ boton.addEventListener("click", function() {
         puntaje = puntaje + 1;
     }
 
-    if (respuesta4 != null && respuesta4.value == "a") {
+    if (respuesta4 != null && respuesta4.value == "b") {
         puntaje = puntaje + 1;
     }
 
-    if (respuesta5 != null && respuesta5.value == "b") {
+    if (respuesta5 != null && respuesta5.value == "c") {
         puntaje = puntaje + 1;
     }
 
-    if (respuesta6 != null && respuesta6.value == "c") {
+    if (respuesta6 != null && respuesta6.value == "b") {
         puntaje = puntaje + 1;
     }
 
