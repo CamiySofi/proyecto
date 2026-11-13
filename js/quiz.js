@@ -1,3 +1,4 @@
+
 var boton = document.getElementById("corregir");
 
 boton.addEventListener("click", function() {
@@ -16,6 +17,18 @@ boton.addEventListener("click", function() {
         'input[name="p3"]:checked'
     );
 
+    var respuesta4 = document.querySelector(
+        'input[name="p4"]:checked'
+    );
+
+    var respuesta5 = document.querySelector(
+        'input[name="p5"]:checked'
+    );
+
+    var respuesta6 = document.querySelector(
+        'input[name="p6"]:checked'
+    );
+
     if (respuesta1 != null && respuesta1.value == "a") {
         puntaje = puntaje + 1;
     }
@@ -28,12 +41,24 @@ boton.addEventListener("click", function() {
         puntaje = puntaje + 1;
     }
 
+    if (respuesta4 != null && respuesta4.value == "a") {
+        puntaje = puntaje + 1;
+    }
+
+    if (respuesta5 != null && respuesta5.value == "b") {
+        puntaje = puntaje + 1;
+    }
+
+    if (respuesta6 != null && respuesta6.value == "c") {
+        puntaje = puntaje + 1;
+    }
+
     var resultado = document.getElementById("resultado");
 
     resultado.textContent = "Obtuviste " + puntaje +
-        " de 3 respuestas correctas.";
+        " de 6 respuestas correctas.";
 
-    if (puntaje == 3) {
+    if (puntaje == 6) {
         resultado.textContent = resultado.textContent +
             " ¡Excelente!";
     } else {
