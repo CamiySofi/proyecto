@@ -1,59 +1,67 @@
-
 var boton = document.getElementById("corregir");
 
 boton.addEventListener("click", function() {
 
-    var puntaje = 0;
+    let puntaje = 0;
 
-    var respuesta1 = document.querySelector(
+    let respuesta1 = document.querySelector(
         'input[name="p1"]:checked'
     );
 
-    var respuesta2 = document.querySelector(
+    let respuesta2 = document.querySelector(
         'input[name="p2"]:checked'
     );
 
-    var respuesta3 = document.querySelector(
+    let respuesta3 = document.querySelector(
         'input[name="p3"]:checked'
     );
 
-    var respuesta4 = document.querySelector(
+    let respuesta4 = document.querySelector(
         'input[name="p4"]:checked'
     );
 
-    var respuesta5 = document.querySelector(
+    let respuesta5 = document.querySelector(
         'input[name="p5"]:checked'
     );
 
-    var respuesta6 = document.querySelector(
+    let respuesta6 = document.querySelector(
         'input[name="p6"]:checked'
     );
 
-    if (respuesta1 != null && respuesta1.value == "a") {
-        puntaje = puntaje + 1;
+    let resultado = document.getElementById("resultado");
+
+    // Comprobar que estén respondidas las seis preguntas
+    if (!respuesta1 || !respuesta2 || !respuesta3 ||
+        !respuesta4 || !respuesta5 || !respuesta6) {
+
+        resultado.textContent = "Debes responder las seis preguntas.";
+        return;
     }
 
-    if (respuesta2 != null && respuesta2.value == "b") {
-        puntaje = puntaje + 1;
+    // Respuestas correctas
+    if (respuesta1.value === "a") {
+        puntaje++;
     }
 
-    if (respuesta3 != null && respuesta3.value == "c") {
-        puntaje = puntaje + 1;
+    if (respuesta2.value === "b") {
+        puntaje++;
     }
 
-    if (respuesta4 != null && respuesta4.value == "b") {
-        puntaje = puntaje + 1;
+    if (respuesta3.value === "c") {
+        puntaje++;
     }
 
-    if (respuesta5 != null && respuesta5.value == "c") {
-        puntaje = puntaje + 1;
+    if (respuesta4.value === "b") {
+        puntaje++;
     }
 
-    if (respuesta6 != null && respuesta6.value == "b") {
-        puntaje = puntaje + 1;
+    if (respuesta5.value === "c") {
+        puntaje++;
     }
 
-    var resultado = document.getElementById("resultado");
+    if (respuesta6.value === "b") {
+        puntaje++;
+    }
 
     resultado.textContent = "Obtuviste " + puntaje +
         " de 6 respuestas correctas.";
@@ -61,9 +69,25 @@ boton.addEventListener("click", function() {
     if (puntaje == 6) {
         resultado.textContent = resultado.textContent +
             " ¡Excelente!";
+    } else if (puntaje >= 4) {
+        resultado.textContent = resultado.textContent +
+            " ¡Muy bien!";
     } else {
         resultado.textContent = resultado.textContent +
             " ¡Seguí practicando!";
     }
+
+});
+
+// Botón para reiniciar
+document.getElementById("reiniciar").addEventListener("click", function() {
+
+    let opciones = document.querySelectorAll('input[type="radio"]');
+
+    for (let opcion of opciones) {
+        opcion.checked = false;
+    }
+
+    document.getElementById("resultado").textContent = "";
 
 });
