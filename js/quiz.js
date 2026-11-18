@@ -78,16 +78,3 @@ boton.addEventListener("click", function() {
     }
 
 });
-
-// Botón para reiniciar
-document.getElementById("reiniciar").addEventListener("click", function() {
-
-    let opciones = document.querySelectorAll('input[type="radio"]');
-
-    for (let opcion of opciones) {
-        opcion.checked = false;
-    }
-
-    document.getElementById("resultado").textContent = "";
-
-});
